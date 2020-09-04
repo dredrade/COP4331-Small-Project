@@ -1,36 +1,35 @@
 <?php
 
 	$inData = getRequestInfo();
-	
+
 	$id = 0;
 	$firstName = "";
 	$lastName = "";
 
-	$conn = new mysqli("localhost", "ricklein_leinecker", "WeLoveCOP4331", "ricklein_COP4331");
-	if ($conn->connect_error) 
+	$conn = new mysqli("localhost", "group5_HTMLAccess", "thisonlyworkssometimes", "group5_contacts");
+	if ($conn->connect_error)
 	{
 		returnWithError( $conn->connect_error );
-	} 
+	}
 	else
 	{
-		$sql = "SELECT ID,firstName,lastName FROM Users where Login='" . $inData["login"] . "' and Password='" . $inData["password"] . "'";
+		$sql = "SELECT UserID,firstName,lastName FROM Users WHERE Login='" . $inData["login"] . "' AND password='" . $inData["password"] . "'";
 		$result = $conn->query($sql);
 		if ($result->num_rows > 0)
 		{
 			$row = $result->fetch_assoc();
 			$firstName = $row["firstName"];
 			$lastName = $row["lastName"];
-			$id = $row["ID"];
-			
+			$id = $row["UserID"];
 			returnWithInfo($firstName, $lastName, $id );
 		}
 		else
 		{
-			returnWithError( "No Records Found" );
+			returnWithError("No such contact");
 		}
 		$conn->close();
 	}
-	
+
 	function getRequestInfo()
 	{
 		return json_decode(file_get_contents('php://input'), true);
@@ -41,17 +40,17 @@
 		header('Content-type: application/json');
 		echo $obj;
 	}
-	
+
 	function returnWithError( $err )
 	{
 		$retValue = '{"id":0,"firstName":"","lastName":"","error":"' . $err . '"}';
 		sendResultInfoAsJson( $retValue );
 	}
-	
+
 	function returnWithInfo( $firstName, $lastName, $id )
 	{
 		$retValue = '{"id":' . $id . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';
 		sendResultInfoAsJson( $retValue );
 	}
-	
+
 ?>
