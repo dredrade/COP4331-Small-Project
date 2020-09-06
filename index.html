@@ -1,21 +1,33 @@
 <html>
 <head>
-	<title>COP 4331 LAMP Stack Demo</title>
+	<title>Vintage Contacts</title>
 	<script type="text/javascript" src="js/md5.js"></script>
 	<script type="text/javascript" src="js/code.js"></script>
-    <link href="css/styles.css" rel="stylesheet">	
+    <link href="css/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
 </head>
-<body>
+<body style="background-color:yellow">
 
-<h1 id="title">COP 4331 LAMP Stack Demo</h1>
+<h1 id="title" style="color:black;font-size:69;font-family:'Comic Sans MS';">Vintage Contacts</h1>
 
-<div id="loginDiv">
-	<span id="inner-title">PLEASE LOG IN</span>
-	<input type="text" id="loginName" placeholder="Username" /><br />
-	<input type="password" id="loginPassword" placeholder="Password"/><br />
-	<button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Do It </button>
-	<span id="loginResult"></span>
+<div class="container">
+	<div id="loginDiv" style="background-color:black;">
+		<span id="inner-title" style="color:yellow;">PLEASE LOG IN</span>
+		<input type="text" id="loginName" placeholder="Username" /><br />
+		<input type="password" id="loginPassword" placeholder="Password"/><br />
+
+		<div class="row">
+			<div class="column">
+				<button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Log In </button>
+			</div>
+
+			<div class="column">
+				<button type="button" id="newUserButton" class="buttons" onclick="window.location.href = 'newUser.html';"> Create Account </button>
+			</div>
+		</div>
+
+		<span id="loginResult"></span>
+	</div>
 </div>
 
 </body>

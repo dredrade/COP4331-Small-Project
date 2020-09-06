@@ -20,6 +20,7 @@ body
     margin-left: 15%;
     padding: 25px;
     background-color: #b2b2b2;
+    box-shadow: 10px 10px blue;
 }
 
 #loggedInDiv
@@ -90,6 +91,7 @@ input[type="text"],input[type="password"]{
     margin-bottom: 2%;
     font-family: 'Ubuntu', sans-serif;
     color: #95060a;
+    text-shadow: 2px 2px 3px white, -2px -2px 3px white;
 }
 
 #loginResult{
@@ -137,4 +139,14 @@ select{
     margin-bottom: 1%;
     font-family: 'Ubuntu', sans-serif;
     color: #95060a;
+}
+#firstName{
+    font-size: 30px;
+}
+#lastName{
+    font-size: 30px;
+}
+.column{
+    float: left;
+    width: 50%;
 }
