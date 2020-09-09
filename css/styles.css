@@ -141,12 +141,39 @@ select{
     color: #95060a;
 }
 #firstName{
-    font-size: 30px;
+    font-size: 32px;
 }
 #lastName{
-    font-size: 30px;
+    font-size: 32px;
 }
 .column{
     float: left;
     width: 50%;
+}
+.row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+#newName{
+    font-size: 32px;
+}
+#newPass{
+    font-size: 32px;
+}
+#newFirst{
+    font-size: 32px;
+}
+#newLast{
+    font-size: 32px;
+}
+#createResult{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    margin-left: 5%;
+    margin-bottom: 2%;
+    font-family: 'Ubuntu', sans-serif;
+    color: #95060a;
 }

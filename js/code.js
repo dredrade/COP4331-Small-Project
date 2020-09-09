@@ -29,10 +29,11 @@ function doLogin() {
 		{
 			document.getElementById("loginResult").innerHTML = "User/Password combination incorrect";
 			return;
-		} else {
-		    document.getElementById("loginResult").innerHTML = "Login Successfull, ID: " + userId;
+		} else
+    {
+		    document.getElementById("loginResult").innerHTML = "Login Successful";
         window.location.href = "https://youtu.be/dQw4w9WgXcQ";
-      }
+    }
 
     } catch(err)
     {
