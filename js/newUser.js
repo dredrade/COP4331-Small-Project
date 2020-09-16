@@ -18,27 +18,30 @@ function createUser()
   var jsonPayload = '{"login" : "' + username + '", "password" : "' + password + '", "FirstName" : "' + firstName + '", "LastName" : "' + lastName + '"}';
   var url = urlBase + '/NewUser.' + extension;
   var xhr = new XMLHttpRequest();
-  xhr.open("POST", url, false);
+  xhr.open("PUT", url, false);
   xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
 
   try {
     xhr.send(jsonPayload);
 
     var jsonObject = JSON.parse( xhr.responseText );
     userId = jsonObject.id;
+    var error = jsonObject.error;
 
-    document.getElementById("createResult").innerHTML = userID;
-
-    if (userId < 1)
+    // Error 0: No Error
+    if (error == "0")
     {
       document.getElementById("createResult").innerHTML = "Success!";
       window.location.href = "index.html";
-      return;
-    } else {
+    }
+    // Error 1062: Non-unique UserName
+    else if(error == "1062") {
       document.getElementById("createResult").innerHTML = "Username already taken.";
     }
 
   } catch (e) {
-      document.GetElementById("createResult").innerHTML = "Woah, there seems to be some bad stuff going on rn";
+      document.getElementById("createResult").innerHTML = "Woah, there seems to be some bad stuff going on rn:" + e;
   }
+  return;
 }

@@ -10,29 +10,24 @@
 
   $conn = new mysqli("localhost", "group5_HTMLAccess", "thisonlyworkssometimes", "group5_contacts");
 
+
   if($conn->connect_error)
   {
     returnWithError( $conn->connect_error );
   }
   else
   {
-    $sql = "SELECT UserID FROM Users WHERE Login='" . $inData["login"] . "'";
+    $sql = "INSERT INTO Users VALUES (0, '$firstName', '$lastName', '$username', '$password')";
 
-    $result = $conn->query($sql);
+    $id = 0;
 
-    if($result->num_rows > 0)
-    {
-      $row = $result->fetch_assoc();
-      $id = $row["UserID"];
-      returnWithInfo($id);
+
+    $conn->query($sql);
+    if(mysqli_error($conn)) {
+        returnWithError($conn->errno);
     }
-    else
-    {
-      $sql = "INSERT INTO Users VALUES (0, '$firstName', '$lastName', '$username', '$password')";
-
-      $conn->query($sql);
-
-      returnWithInfo(0);
+    else {
+        returnWithInfo($id);
     }
   }
 
@@ -55,7 +50,7 @@
 
 	function returnWithInfo( $id )
 	{
-		$retValue = '{"id":' . $id . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":""}';
+		$retValue = '{"id":' . $id . ',"firstName":"' . $firstName . '","lastName":"' . $lastName . '","error":"0"}';
 		sendResultInfoAsJson( $retValue );
 	}
 
