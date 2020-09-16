@@ -20,6 +20,7 @@ body
     margin-left: 15%;
     padding: 25px;
     background-color: #b2b2b2;
+    box-shadow: 10px 10px blue;
 }
 
 #loggedInDiv
@@ -90,6 +91,7 @@ input[type="text"],input[type="password"]{
     margin-bottom: 2%;
     font-family: 'Ubuntu', sans-serif;
     color: #95060a;
+    text-shadow: 2px 2px 3px white, -2px -2px 3px white;
 }
 
 #loginResult{
@@ -135,6 +137,43 @@ select{
     margin-left: 5%;
     margin-top: 2%;
     margin-bottom: 1%;
+    font-family: 'Ubuntu', sans-serif;
+    color: #95060a;
+}
+#firstName{
+    font-size: 32px;
+}
+#lastName{
+    font-size: 32px;
+}
+.column{
+    float: left;
+    width: 50%;
+}
+.row:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+#newName{
+    font-size: 32px;
+}
+#newPass{
+    font-size: 32px;
+}
+#newFirst{
+    font-size: 32px;
+}
+#newLast{
+    font-size: 32px;
+}
+#createResult{
+    display: inline-block;
+    font-size: 0.8em;
+    width: 90%;
+    text-align: center;
+    margin-left: 5%;
+    margin-bottom: 2%;
     font-family: 'Ubuntu', sans-serif;
     color: #95060a;
 }
