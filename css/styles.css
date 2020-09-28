@@ -7,7 +7,6 @@ body
 {
     font-size: 40px;
     width: 100%;
-    margin: 2% 5%;
     text-align: center;
     font-family: 'Ubuntu', sans-serif;
     color: #FFFFFF;
@@ -167,6 +166,12 @@ select{
 #newLast{
     font-size: 32px;
 }
+#newEmail{
+    font-size: 32px;
+}
+#newPhone{
+    font-size: 32px;
+}
 #createResult{
     display: inline-block;
     font-size: 0.8em;
@@ -176,4 +181,9 @@ select{
     margin-bottom: 2%;
     font-family: 'Ubuntu', sans-serif;
     color: #95060a;
+}
+#newContactInfo{
+    color:white;
+    font-size:32px;
+    margin-left:70px;
 }
